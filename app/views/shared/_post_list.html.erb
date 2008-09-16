@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag stylesheet_list %>
+<%= stylesheet_link_tag stylesheet_paginator %>
+
+<table id="gradient-style" summary="<%= yield(:title) %>">
+	<thead>
+	  <tr>
+	    <th scope="col">Subject</th>
+<% if show_forum %>
+	  	<th scope="col">In Forum</th>
+<% end %>
+	    <th scope="col">Replys</th>
+	    <th scope="col">Author</th>
+	    <th scope="col">Post Time</th>
+	  </tr>
+	</thead>
+	<tbody>
+<%
+for post in posts
+	if show_forum
+		forum = Forum.find(post.forum_id)
+	end
+  message = Message.find(post.root_message_id)
+  user = User.find(message.user_id)
+%>
+	  <tr>
+	    <td><%= link_to message.subject, post_messages_path(post) %></td>
+	<% if show_forum %>
+			<td><%= link_to forum.name, forum_path(forum) %></th>
+	<% end %>
+	    <td><%= post.messages.count - 1 %></td>
+	    <td><%= user.user_name %></td>
+	    <td><%= Time.at(post.creation_date.to_i/1000).strftime(format_datetime) %></td>
+	  </tr>
+<% end %>
+	</tbody>
+  <tfoot>
+    <tr>
+      <td colspan="<%= show_forum ? 5 : 4 %>">
+				<div class="digg_pagination">
+					<%= page_entries_info posts %>
+					<%= will_paginate posts, :inner_window => 3, :outer_window => 2,
+			                      :previous_label => 'Prev', :next_label => 'Next' %>
+				</div><br />
+<% if is_search_result %>
+	    	<%= link_to "Home", categories_path %> > 
+	      <%= link_to "Search", search_path %>
+<% else %>
+				<%= link_to "Home", categories_path %> > 
+				<%= link_to category.name, category_forums_path(category) %> >
+				<%= forum.name %>
+<% end %>
+				<%= render :partial => "shared/footer" %>
+	    </td>
+    </tr>
+  </tfoot>
+</table>

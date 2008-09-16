@@ -1,0 +1,7 @@
+[Not working gems]
+mysql 2.7: install error when compiling native extension
+mysqlplus 0.1.0: installed and runnable, but some I/O error resulting char glitch (not very clear issue)
+mislav-will_paginate: installed and raise errors
+
+[Hacking]
+'load_rubygems' in config/boot.rb should be commented out, which is totally not needed in Ruby 1.9

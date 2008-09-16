@@ -1,0 +1,2 @@
+wget -nv http://github.com/mislav/will_paginate/tarball/master -O- | \
+  tar xzv -C vendor/plugins/will_paginate --strip 1

@@ -1,0 +1,14 @@
+- Add navigate links on every page [DONE]
+- Using jquery instead of prototype [DONE]
+- Add pre-submit validation in search form [DONE]
+
+- Pagination [DONE]
+- Controller Message [DONE]
+- Search by attributes [DONE]
+
+- DB query optimization to prevent query in view templates(posts/messages) [PENDING]
+- will_paginate on searching requires GET method in the form, which makes ugly url [PENDING]
+- Regular expression searching on the subject attribute is based on MySQL-only REGEXP operator [PENDING]
+
+- Search by full-text
+- Threaded mode display for messages

@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag stylesheet_message_flat %>
+
+<% title "Messages in \"" + @root_message.subject + "\"" %>
+
+<table id="hor-zebra" summary="<%= yield(:title) %>">
+  <tbody>
+  <% for message in @messages %>
+  <%   user = User.find(message.user_id) %>
+    <tr class="odd">
+	  <td><b><%= message.subject %></b> by <i><%= user.user_name %></i>
+	    <small> - <%= Time.at(message.creation_date.to_i/1000).strftime(format_datetime) %></small></td>
+	</tr>
+    <tr>
+	  <td><%= filter message.body %></td>
+	</tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5"><%= link_to "Home", categories_path %> > 
+	      <%= link_to @category.name, category_forums_path(@category) %> >
+	      <%= link_to @forum.name, forum_posts_path(@forum) %> >
+	      <%= @root_message.subject %>
+				<%= render :partial => "shared/footer" %>
+	    </td>
+    </tr>
+  </tfoot>
+</table>

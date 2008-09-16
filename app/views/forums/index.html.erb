@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag stylesheet_list %>
+
+<% title "Forums in \"" + @category.name + "\"" %>
+
+<table id="gradient-style" summary="<%= yield(:title) %>">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Posts/Messages</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+	    	<%= link_to "Home", categories_path %> > <%= @category.name %>
+				<%= render :partial => "shared/footer" %>
+	  	</td>
+    </tr>
+  </tfoot>
+  <tbody>
+  <% for forum in @forums %>
+    <tr>
+      <td><%= link_to forum.name, forum_posts_path(forum) %></td>
+      <td><%= forum.posts.count %>/<%= forum.messages.count %></td>
+      <td><%= forum.description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,5 @@
+<% title "Posts in \"" + @forum.name + "\"" %>
+
+<%= render :partial => "shared/post_list",
+           :locals => { :posts => @posts, :show_forum => false, :is_search_result => false,
+	                      :category => @category, :forum => @forum } %>

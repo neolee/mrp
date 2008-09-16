@@ -1,0 +1,55 @@
+<%= stylesheet_link_tag stylesheet_form %>
+
+<%= javascript_include_tag script_jquery %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#subject').focus();
+
+	$('form').submit(function() {
+		if ($('#subject').val() || $('#user_name').val()) {
+	    $('#validation_text').text('Querying...').show();
+	    return true;
+		} else {
+	    $('#validation_text').text('Error: at lease one basic attribute should be set.').wrap('<em></em>').show();
+			$('#subject').focus();
+	    return false;		
+		}
+	});
+});
+
+</script>
+
+<% form_for :post, :url => { :action => "result" }, :html => { :method => "get", :class => "cmxform" } do |f| %>
+<fieldset>
+  <legend>Basic attributes (at least one of them should be set)</legend>
+  <ol>
+    <li><label for="subject">Title <em>*</em></label> <%= text_field_tag :subject, params[:subject] %>
+			<br /><small>Try regular expressions!</small></li>
+    <li><label for="user_name">Author <em>*</em></label> <%= text_field_tag :user_name, params[:user_name] %></li>
+  </ol>
+  <legend>Extended attributes (optional)</legend>
+  <ol>
+    <li>
+      <label for="forum_id">In forum</label> <select name="forum_id" id="forum_id">
+        <option value="0" selected="selected">All</option>
+        <%= option_groups_from_collection_for_select(@categories, :forums, :name, :id, :name) %>
+      </select>
+    </li>
+    <li>
+      <fieldset>
+        <legend>During</legend>
+        <label><%= select_date(Time.now, :prefix => "start_date", :start_year => 2002) %></label>
+        <label><%= select_date(Time.now + 1.days, :prefix => "end_date", :start_year => 2002) %></label>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+        <legend>Contains</legend>
+        <label><%= text_field_tag :full_text, params[:full_text], :size => 40 %></label>
+      </fieldset>
+    </li>
+  </ol>
+</fieldset>
+<%= submit_tag "Search" %>&nbsp;&nbsp;<span id="validation_text" style="display: none"><span>
+<% end %>

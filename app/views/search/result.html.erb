@@ -1,0 +1,6 @@
+<% title "Search Result" %>
+
+<% if @results %>
+<%= render :partial => "shared/post_list", 
+           :locals => { :posts => @results, :show_forum => true, :is_search_result => true } %>
+<% end %>

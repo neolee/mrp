@@ -1,0 +1,23 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: mrp_development
+  username: mrp
+  password: nirvana
+  host: db1.7thgen.info
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: mrp_test
+  username: mrp
+  password: nirvana
+  host: db1.7thgen.info
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: mrp_production
+  username: mrp
+  password: nirvana
+  host: db1.7thgen.info
