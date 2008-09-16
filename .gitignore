@@ -1,0 +1,9 @@
+# Ignore Mac OS X .DS_*
+.DS_*
+
+# Ignore rails temporary folder
+log
+tmp
+
+# Ignore plugins (should be configured on server)
+vendor/plugins/jrails
