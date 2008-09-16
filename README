@@ -1,18 +1,11 @@
 MRP = The Matrix.org Resurrection Project
-也就是将老Matrix论坛数据导出并编写页面进行查询、浏览显示的计划。
-这个计划分两个步骤进行：
 
-Phase 1 Data Migrating
-数据迁移，原来的Oracle数据使用不便，首先将其导入到MySQL数据库中。
-Step 1: 将Matrix论坛最后关闭时的数据备份恢复到Oracle数据库中，确认读取完整无误。
-Step 2: 根据需要选择有用的表，将其结构在MySQL数据库中重建。
-Step 3: 选择工具或者自编程序读取需要的数据写入到目标MySQL数据库中。
-Phase II Presentation
-数据展现，为了让这个计划稍微有趣，可能会考虑采用RoR、Ext之类技术来做这个事情。计划实现主要功能：
-1. 按板块静态浏览；
-2. 按作者、标题、时间查询；
-3. 全文检索查询。（待定）
-不准备支持的功能：
-1. 所有附件相关的功能。
-2. 所有特殊标签转码显示的功能（真怀念Sunny同学滴[mop]标签啊）。
-有兴趣的老家伙们可以志愿参与相关工作，或者提供有帮助的建议或资源。
+The project that migrates data from the old Matrix.org forum into MySQL database and builds a Ruby on Rails application to browse and query on them.
+
+Features:
+- Browse by categories and forums. [DONE]
+- Search by subject, author, forum and creation date. [DONE]
+- Search by full-text. [PENDING]
+- Some of the markups (e.g. [mop 253]). [PENDING]
+
+All the other request will NOT be implemented for now.
