@@ -66,5 +66,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-require 'acts_as_ferret'
 require 'will_paginate'
+
+require 'acts_as_ferret'
+require 'rmmseg/ferret'
