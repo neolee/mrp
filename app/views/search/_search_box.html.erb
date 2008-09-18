@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$('#subject').focus();
 
 	$('form').submit(function() {
-		if ($('#subject').val() || $('#user_name').val()) {
+		if ($('#subject').val() || $('#user_name').val() || $('#full_text').val()) {
 	    $('#validation_text').text('Querying...').show();
 	    return true;
 		} else {
@@ -26,7 +26,8 @@ $(document).ready(function() {
   <ol>
     <li><label for="subject">Title <em>*</em></label> <%= text_field_tag :subject, params[:subject] %>
 			<br /><small>Try regular expressions!</small></li>
-    <li><label for="user_name">Author <em>*</em></label> <%= text_field_tag :user_name, params[:user_name] %></li>
+	  <li><label for="user_name">Author <em>*</em></label> <%= text_field_tag :user_name, params[:user_name] %></li>
+	  <li><label for="full_text">Text <em>*</em></label> <%= text_field_tag :full_text, params[:full_text] %></li>
   </ol>
   <legend>Extended attributes (optional)</legend>
   <ol>
@@ -41,12 +42,6 @@ $(document).ready(function() {
         <legend>During</legend>
         <label><%= select_date(Time.now, :prefix => "start_date", :start_year => 2002) %></label>
         <label><%= select_date(Time.now + 1.days, :prefix => "end_date", :start_year => 2002) %></label>
-      </fieldset>
-    </li>
-    <li>
-      <fieldset>
-        <legend>Contains</legend>
-        <label><%= text_field_tag :full_text, params[:full_text], :size => 40 %></label>
       </fieldset>
     </li>
   </ol>

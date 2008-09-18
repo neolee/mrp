@@ -5,6 +5,9 @@
 log
 tmp
 
+# Ignore ferret index folder
+index
+
 # Ignore plugins (should be configured on server)
 vendor/plugins/jrails
 vendor/plugins/acts_as_ferret
