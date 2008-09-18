@@ -7,6 +7,3 @@ tmp
 
 # Ignore plugins (should be configured on server)
 vendor/plugins/jrails
-
-vendor/plugins/acts_as_ferret
-ferret_server*
