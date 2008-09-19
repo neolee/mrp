@@ -12,7 +12,7 @@ class SearchController < ApplicationController
     full_text = params[:full_text]
     
     if full_text and not full_text.empty?
-      messages = Message.find_with_ferret(full_text).collect { |m| m.post_id }
+      messages = Message.find_with_ferret(full_text, :limit => :all).collect { |m| m.post_id }.uniq
     else
       cond = []
       if subject and not subject.empty?
