@@ -27,7 +27,8 @@ $(document).ready(function() {
     <li><label for="subject">Title <em>*</em></label> <%= text_field_tag :subject, params[:subject] %>
 			<br /><small>Try regular expressions!</small></li>
 	  <li><label for="user_name">Author <em>*</em></label> <%= text_field_tag :user_name, params[:user_name] %></li>
-	  <li><label for="full_text">Text <em>*</em></label> <%= text_field_tag :full_text, params[:full_text] %></li>
+	  <li><label for="full_text">Text <em>*</em></label> <%= text_field_tag :full_text, params[:full_text] %>
+			<br /><small>All other fields will be omitted if this field applied</small></li>
   </ol>
   <legend>Extended attributes (optional)</legend>
   <ol>
