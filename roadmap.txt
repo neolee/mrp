@@ -5,10 +5,11 @@
 - Pagination [DONE]
 - Controller Message [DONE]
 - Search by attributes [DONE]
+- Search by full-text [ALMOST DONE]
+- Search by full-text should be connect with other extended criteria
 
 - DB query optimization to prevent query in view templates(posts/messages) [PENDING]
 - will_paginate on searching requires GET method in the form, which makes ugly url [PENDING]
 - Regular expression searching on the subject attribute is based on MySQL-only REGEXP operator [PENDING]
 
-- Search by full-text
 - Threaded mode display for messages
