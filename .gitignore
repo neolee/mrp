@@ -1,3 +1,6 @@
+# Secure files
+config/database.yml
+
 # Ignore Mac OS X .DS_*
 .DS_*
 
