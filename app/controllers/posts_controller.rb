@@ -15,6 +15,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    
+    redirect_to post_messages_path(Post.find(params[:id]))
   end
 end
