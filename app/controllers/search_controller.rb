@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @categories = Category.find(:all)
+    @categories = Category.find(:all, :conditions => ["id>1"])
   end
   
   def result
