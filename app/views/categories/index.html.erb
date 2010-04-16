@@ -40,7 +40,7 @@ $(document).ready(function() {
   </tfoot>
   <tbody>
   <% for category in @categories %>
-    <tr>
+  <tr>
 	  <td><%= link_to category.name, category_forums_path(category) %></td>
 	  <td><%= category.description %></td>
 	</tr>
